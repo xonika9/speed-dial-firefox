@@ -4,3 +4,4 @@ build_dev/
 dist/
 src/generated/
 .env
+.aider*
