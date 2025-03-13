@@ -1,19 +1,19 @@
 {
     "manifest_version": 3,
-    "name": "Super Speedy Dial",
-    "version": "3.0.5",
+    "name": "Firefox Speed Dial",
+    "version": "1.0.0",
 
     "browser_specific_settings": {
         "gecko": {
-            "id": "wilshomepageaddon@gmail.com"
+            "id": "xonika9@gmail.com"
         }
     },
 
-    "description": "Opera inspired speed dial page for your bookmarks",
+    "description": "Speed dial page for your new tab page",
 
     "action": {
         "default_icon": "logo.png",
-        "default_title": "Super Speedy Dial"
+        "default_title": "Firefox Speed Dial"
     },
 
     "chrome_url_overrides": {
