@@ -253,30 +253,18 @@ export async function retrieveIconShortcutBlob(url: string, html: Document): Pro
 }
 
 export async function retrieveIconBlob(url: string, html: Document): Promise<Blob | null> {
-    const sizes = [
-        '228x228',
-        '196x196',
-        '195x195',
-        '192x192',
-        '180x180',
-        '167x167',
-        '152x152',
-        '144x144',
-        '128x128',
-        '120x120',
-        '96x96',
-    ];
-
-    for (const size of sizes) {
-        const elem = html.querySelector(`link[rel="icon"][sizes="${size}"]`);
-        if (elem) {
-            const href = elem.getAttribute('href');
-            if (href != null) {
-                const image = await retrieveBlob(convertUrlToAbsolute(url, href));
-                if (image != null) return image;
-            }
+    // Look for favicon in this order:
+    // 1. Standard favicon
+    const icon = html.querySelector('link[rel="icon"]') || 
+                html.querySelector('link[rel="shortcut icon"]');
+    
+    if (icon) {
+        const href = icon.getAttribute('href');
+        if (href) {
+            return retrieveBlob(convertUrlToAbsolute(url, href));
         }
     }
+    
     return null;
 }
 
@@ -359,38 +347,21 @@ const parser = new DOMParser();
 export async function retrieveBookmarkImage(url: string): Promise<Image | null> {
     try {
         const response = await fetch(url, { credentials: 'include' });
-
-        const contentType = response.headers.get('Content-Type');
-        if (!response.ok || contentType == null) return blobToImage(await retrieveFaviconBlob(url));
-
-        const mimeType = contentType.split(';')[0].trim();
-
-        if (isSupportedImageType(mimeType)) return blobToImage(await response.blob());
-
-        const mimeImage = await retrieveBlobFromMime(mimeType);
-
-        if (!isSupportedDomParserType(mimeType)) {
-            return blobToImage(mimeImage ?? (await retrieveFaviconBlob(url)));
+        const html = parser.parseFromString(await response.text(), 'text/html');
+        
+        // Try to get favicon in priority order:
+        // 1. Icon from <link> tag
+        // 2. Favicon via external service
+        const iconBlob = await retrieveIconBlob(url, html) || 
+                        await retrieveFaviconBlob(url);
+        
+        if (iconBlob) {
+            return blobToImage(iconBlob);
         }
-
-        const html = parser.parseFromString(await response.text(), mimeType);
-        const images = await retrieveFirstImageOrLoaded([
-            // () => retrieveOpenGraphBlob(url, html),
-            () => retrieveTwitterBlob(url, html),
-            () => retrieveIconBlob(url, html),
-            () => retrieveIconShortcutBlob(url, html),
-            () => retrieveAppleIconBlob(url, html),
-            () => retrievePageBlob(url, html),
-            () => retrieveFaviconBlob(url),
-            () => Promise.resolve(mimeImage),
-        ]);
-
-        if ('first' in images) {
-            return images.first;
-        } else {
-            return largestImage(images.loaded);
-        }
+        
+        return null;
     } catch {
+        // If all else fails, return favicon via external service
         return blobToImage(await retrieveFaviconBlob(url));
     }
 }
