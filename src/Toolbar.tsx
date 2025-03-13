@@ -297,7 +297,7 @@ const AboutToolbarButtonItem: Component<ToolbarButtonItemProps> = props => {
                     <div style={{ 'font-size': '30px' }}>{runtime.getManifest().name}</div>
                     <div>{runtime.getManifest().description}</div>
                     <div>Version: {runtime.getManifest().version}</div>
-                    <div>Developed by Wil Gaboury</div>
+                    <div>Developed by xonika</div>
                     <div></div>
                 </div>
                 <button
