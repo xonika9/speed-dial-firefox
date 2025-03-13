@@ -375,7 +375,7 @@ export async function retrieveBookmarkImage(url: string): Promise<Image | null> 
 
         const html = parser.parseFromString(await response.text(), mimeType);
         const images = await retrieveFirstImageOrLoaded([
-            () => retrieveOpenGraphBlob(url, html),
+            // () => retrieveOpenGraphBlob(url, html),
             () => retrieveTwitterBlob(url, html),
             () => retrieveIconBlob(url, html),
             () => retrieveIconShortcutBlob(url, html),
