@@ -26,10 +26,7 @@ html {
 
 body {
     margin: 0;
-}
-
-body {
-    font-family: "Segoe UI", Helvetica, Arial;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
@@ -93,6 +90,9 @@ td {
     align-items: flex-start;
     flex-wrap: nowrap;
     width: 100%;
+
+    max-width: 1600px;
+    margin: auto;
 }
 
 .header-item {
@@ -118,6 +118,9 @@ td {
     width: 100%;
     box-sizing: border-box;
     padding: 0 50px 50px 50px;
+
+    max-width: 1600px;
+    margin: auto;
 }
 
 .sortable > * {
@@ -187,7 +190,7 @@ td {
 
     width: 120px;
     max-width: 120px !important;
-    line-height: 1.1rem;
+    line-height: 1.3rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

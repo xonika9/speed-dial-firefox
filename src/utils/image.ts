@@ -255,16 +255,16 @@ export async function retrieveIconShortcutBlob(url: string, html: Document): Pro
 export async function retrieveIconBlob(url: string, html: Document): Promise<Blob | null> {
     // Look for favicon in this order:
     // 1. Standard favicon
-    const icon = html.querySelector('link[rel="icon"]') || 
-                html.querySelector('link[rel="shortcut icon"]');
-    
+    const icon =
+        html.querySelector('link[rel="icon"]') || html.querySelector('link[rel="shortcut icon"]');
+
     if (icon) {
         const href = icon.getAttribute('href');
         if (href) {
             return retrieveBlob(convertUrlToAbsolute(url, href));
         }
     }
-    
+
     return null;
 }
 
@@ -348,17 +348,16 @@ export async function retrieveBookmarkImage(url: string): Promise<Image | null> 
     try {
         const response = await fetch(url, { credentials: 'include' });
         const html = parser.parseFromString(await response.text(), 'text/html');
-        
+
         // Try to get favicon in priority order:
         // 1. Icon from <link> tag
         // 2. Favicon via external service
-        const iconBlob = await retrieveIconBlob(url, html) || 
-                        await retrieveFaviconBlob(url);
-        
+        const iconBlob = (await retrieveIconBlob(url, html)) || (await retrieveFaviconBlob(url));
+
         if (iconBlob) {
             return blobToImage(iconBlob);
         }
-        
+
         return null;
     } catch {
         // If all else fails, return favicon via external service

@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Speed Dial",
-    "version": "1.0.1",
+    "version": "1.0.2",
 
     "browser_specific_settings": {
         "gecko": {
@@ -9,7 +9,7 @@
         }
     },
 
-    "description": "Speed dial page for your new tab page",
+    "description": "Speed dial for your new tab page",
 
     "action": {
         "default_icon": "logo.png",
