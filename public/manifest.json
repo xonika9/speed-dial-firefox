@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "Speed Dial",
+    "name": "Speed Dial New Tab",
     "version": "1.0.2",
 
     "browser_specific_settings": {
         "gecko": {
-            "id": "xonika9@gmail.com"
+            "id": "{1f2a5a27-46cf-47ce-971e-4296aaa0c775}"
         }
     },
 
@@ -13,7 +13,7 @@
 
     "action": {
         "default_icon": "logo.png",
-        "default_title": "Speed Dial"
+        "default_title": "Speed Dial New Tab"
     },
 
     "chrome_url_overrides": {

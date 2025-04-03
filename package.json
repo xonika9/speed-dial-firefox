@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "dev1": "vite",
-    "dev": "vite build --watch --minify false --outDir build_dev",
-    "build": "vite build"
+    "dev": "vite",
+    "build": "vite build --watch --minify false --outDir build_dev",
+    "build2": "vite build"
   },
   "license": "MIT",
   "devDependencies": {
