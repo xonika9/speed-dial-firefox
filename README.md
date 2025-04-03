@@ -1,4 +1,4 @@
-**# Super Speedy Dial**
+# Super Speedy Dial
 
 Download from the [Speed Dial New Tab](https://addons.mozilla.org/ru/firefox/addon/speed-dial-new-tab/)
 
@@ -6,16 +6,16 @@ This Firefox extension transforms your homepage and new tab page into a visually
 
 The user interface is built using [Solidjs](https://www.solidjs.com), a remarkably efficient reactive JavaScript framework that also provides a delightful developer experience.
 
-**## Data Collection**
+## Data Collection
 
 To generate thumbnails and fetch favicons, this add-on sends your bookmark URLs to third-party services (specifically https://faviconkit.com and https://www.google.com/s2/favicons). Please be aware that these services may collect this information. If you are not comfortable with sharing this data, we advise against installing this extension.
 
-**## Build Instructions**
+## Build Instructions
 
 - Clone git repository
 - run `npm build`
 
-**## Features and Tips**
+## Features and Tips
 
 - Reorder bookmarks and edit their names with simple drag and drop.
 - Access a context menu of actions by right-clicking on tiles.
