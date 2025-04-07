@@ -4,6 +4,7 @@
     --background: white;
     --background-rgb: 255, 255, 255;
     --button-hover: #f2f2f2;
+    --button-hover-rgb: 242, 242, 242;
     --button-active: #d9d9d9;
 }
 
@@ -13,6 +14,7 @@
     --background: #1a1a1a;
     --background-rgb: 26, 26, 26;
     --button-hover: #262626;
+    --button-hover-rgb: 38, 38, 38;
     --button-active: #404040;
 }
 
@@ -677,54 +679,86 @@ input[type='file'] {
 }
 
 .floating-menu {
-    background-color: rgba(var(--background-rgb), 0.75);
-    border-radius: 10px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0px 0px 10px 4px rgba(var(--text-color-rgb), 0.25);
+    background-color: rgba(var(--background-rgb), 0.85);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 4px 20px rgba(var(--text-color-rgb), 0.2);
     white-space: nowrap;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    overflow: hidden;
+    border: 1px solid rgba(var(--text-color-rgb), 0.08);
 }
 
 .floating-menu button {
-    padding: 8px;
-    font-size: 15px;
+    padding: 4px 8px;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: inherit;
     display: flex;
     align-items: center;
     border: none;
+    transition:
+        background-color 0.15s ease,
+        transform 0.1s ease,
+        padding-left 0.2s ease;
+    margin: 2px 4px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .floating-menu .separator {
-    border-bottom: solid 1px gray;
-    margin: 5px 10px;
+    border-bottom: solid 1px rgba(var(--text-color-rgb), 0.1);
+    margin: 4px 8px;
 }
 
 .floating-menu.context {
     position: absolute;
     z-index: 50;
-    transform: scale(0);
+    padding: 6px 2px;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .floating-menu.context.show {
-    transform: scale(1);
-    transition: transform 250ms ease;
+    opacity: 1;
+    visibility: visible;
 }
 
 .floating-menu.context.hide {
-    transform: scale(0);
-    transition: transform 250ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.floating-menu button:hover,
+.floating-menuu button:focus {
+    background-color: var(--button-hover);
 }
 
 .context-menu button:hover,
 .context-menu button:focus {
-    background-color: var(--button-hover);
+    background-color: rgba(var(--button-hover-rgb), 0.6);
+    padding-left: 15px;
+    box-shadow: 0 2px 5px rgba(var(--text-color-rgb), 0.08);
 }
 
 .context-menu button:active {
     background-color: var(--button-active);
+    transform: scale(0.98);
+    box-shadow: 0 1px 3px rgba(var(--text-color-rgb), 0.05);
+}
+
+.menu-item-text {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
 }
 
 .dropdown-container {

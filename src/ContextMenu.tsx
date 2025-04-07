@@ -17,7 +17,7 @@ export interface ContentMenuItemProps {
     readonly onClick?: (e: MouseEvent) => void;
 }
 
-export const ctxMenuIconSize = '20px';
+export const ctxMenuIconSize = '18px';
 
 export const ContextMenuItem: Component<ContentMenuItemProps> = props => {
     return (
@@ -28,9 +28,22 @@ export const ContextMenuItem: Component<ContentMenuItemProps> = props => {
                 if (props.onClick != null) props.onClick(e);
             }}
         >
-            {props.icon}
-            <div style={{ 'margin-right': '10px' }} />
-            {props.children}
+            {props.icon && (
+                <div
+                    style={{
+                        display: 'flex',
+                        'justify-content': 'center',
+                        'align-items': 'center',
+                        width: '24px',
+                        height: '24px',
+                        'margin-right': '8px',
+                        opacity: '0.9',
+                    }}
+                >
+                    {props.icon}
+                </div>
+            )}
+            <div class='menu-item-text'>{props.children}</div>
         </button>
     );
 };
