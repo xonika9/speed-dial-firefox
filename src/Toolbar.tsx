@@ -337,16 +337,13 @@ function ToolbarButtonWrapper<U extends JSX.Element>(props: ToolbarButtonWrapper
     const navigate = useNavigate();
 
     switch (kind) {
-        // case 'github':
-        //     onClick = e => openUrlClick('https://github.com/xonika9/speed-dial-firefox', e);
-        //     break;
-        // case 'firefox':
-        //     onClick = e =>
-        //         openUrlClick(
-        //             'https://addons.mozilla.org/ru/firefox/addon/speed-dial-new-tab/',
-        //             e,
-        //         );
-        //     break;
+        case 'github':
+            onClick = e => openUrlClick('https://github.com/xonika9/speed-dial-firefox', e);
+            break;
+        case 'firefox':
+            onClick = e =>
+                openUrlClick('https://addons.mozilla.org/ru/firefox/addon/speed-dial-new-tab/', e);
+            break;
         case 'settings':
             onClick = () => setShowSidebar(true);
             break;
