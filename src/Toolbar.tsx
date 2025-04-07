@@ -338,14 +338,11 @@ function ToolbarButtonWrapper<U extends JSX.Element>(props: ToolbarButtonWrapper
 
     switch (kind) {
         case 'github':
-            onClick = e => openUrlClick('https://github.com/wilgaboury/super-speedy-dial', e);
+            onClick = e => openUrlClick('https://github.com/xonika9/speed-dial-firefox', e);
             break;
         case 'firefox':
             onClick = e =>
-                openUrlClick(
-                    'https://addons.mozilla.org/en-US/firefox/addon/super-speedy-dial/',
-                    e,
-                );
+                openUrlClick('https://addons.mozilla.org/ru/firefox/addon/speed-dial-new-tab/', e);
             break;
         case 'settings':
             onClick = () => setShowSidebar(true);
