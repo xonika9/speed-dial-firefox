@@ -918,7 +918,7 @@ input[type='file'] {
 .solid-colorful__saturation {
     position: relative;
     flex-grow: 1;
-    border-color: transparent; /* Fixes https://github.com/omgovich/solid-colorful/issues/139 */
+    border-color: transparent;
     border-bottom: 12px solid #000;
     border-radius: 8px 8px 0 0;
     background-image:

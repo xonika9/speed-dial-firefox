@@ -21,12 +21,12 @@ export const defaultToolbar: ToolbarState = {
     toolbarOverflow: [
         'customize',
         'reload',
-        'separator',
-        'firefox',
-        'github',
-        'separator',
-        'help',
-        'about',
+        // 'separator',
+        // 'firefox',
+        // 'github',
+        // 'separator',
+        // 'help',
+        // 'about',
     ],
     toolbarUnused: ['separator'],
 };
