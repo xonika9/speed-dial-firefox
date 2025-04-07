@@ -21,6 +21,7 @@ import {
     openUrlBackground,
     openUrlNewTab,
     openUrlWindow,
+    openUrlClick,
     run,
 } from './utils/assorted';
 import { retrievePageScreenshotImage } from './utils/image';
@@ -193,8 +194,21 @@ const BookmarkTile: Component = () => {
     const [visual, setVisual] = bookmarkVisual(folderItem.item.id);
     const [onContext, setOnContext] = createSignal<MouseEvent>();
 
+    function handleMouseUp(event: MouseEvent) {
+        if (!folderItem.item.url) return;
+        if (event.button === 1) {
+            openUrlNewTab(folderItem.item.url);
+        } else {
+            openUrlClick(folderItem.item.url, event);
+        }
+    }
+
     return (
-        <TileCard backgroundColor={'var(--button-hover)'} onContextMenu={setOnContext}>
+        <TileCard
+            backgroundColor={'var(--button-hover)'}
+            onContextMenu={e => setOnContext(e)}
+            onMouseUp={handleMouseUp}
+        >
             <ContextMenu event={onContext()}>
                 <BookmarkTileContextMenu
                     onReloadImage={async () => {
