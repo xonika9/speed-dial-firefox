@@ -1,8 +1,8 @@
 # Help
 
-If you are experiencing a problem with the addon that is not addressed here, please visit the github page and [open a discussion](https://github.com/wilgaboury/super-speedy-dial/discussions/new?category=q-a) or [submit an issue](https://github.com/wilgaboury/super-speedy-dial/issues/new).
+If you are experiencing a problem with the addon that is not addressed here, please visit the github page and [open a discussion](https://github.com/xonika9/speed-dial-firefox/discussions/new?category=q-a) or [submit an issue](https://github.com/xonika9/speed-dial-firefox/issues/new).
 
-A possibly more up to date version of this document can also be [found on github](https://github.com/wilgaboury/super-speedy-dial/blob/master/help.md).
+A possibly more up to date version of this document can also be [found on github](https://github.com/xonika9/speed-dial-firefox/blob/main/help.md).
 
 ## Common Issues
 
