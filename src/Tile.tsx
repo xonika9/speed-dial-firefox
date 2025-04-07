@@ -1,5 +1,5 @@
 import { Navigator } from '@solidjs/router';
-import { Component, Match, ParentComponent, Switch, useContext } from 'solid-js';
+import { Component, Match, ParentComponent, Switch, useContext, JSX } from 'solid-js';
 import { Bookmarks } from 'webextension-polyfill';
 import { FolderSortableItemContext, FolderStateContext } from './Folder';
 import { SettingsContext } from './settings';
@@ -43,9 +43,8 @@ export function openTile(
     }
 }
 
-interface TileCardProps {
-    readonly backgroundColor: string;
-    readonly onContextMenu?: (e: MouseEvent) => void;
+interface TileCardProps extends JSX.HTMLAttributes<HTMLDivElement> {
+    backgroundColor: string;
 }
 
 export const TileCard: ParentComponent<TileCardProps> = props => {
@@ -65,13 +64,7 @@ export const TileCard: ParentComponent<TileCardProps> = props => {
                 class='bookmark-card-background'
                 style={{ 'background-color': props.backgroundColor }}
             />
-            <div
-                use:sortableHandle
-                class='bookmark-card'
-                onContextMenu={e => {
-                    if (props.onContextMenu != null) props.onContextMenu(e);
-                }}
-            >
+            <div use:sortableHandle class='bookmark-card' {...props}>
                 {props.children}
             </div>
         </div>
