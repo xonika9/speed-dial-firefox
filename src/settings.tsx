@@ -54,7 +54,7 @@ const defaultSettings: Settings = {
     tileHeight: 80,
     tileGap: 32,
     tileFont: 14,
-    toolbarFont: 20,
+    toolbarFont: 18,
     consent: false,
     customCss: '',
     ...defaultToolbar,
