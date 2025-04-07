@@ -43,11 +43,11 @@ export const ToolbarKinds = [
     'search',
     'bookmark',
     'folder',
-    'github',
-    'firefox',
+    // 'github',
+    // 'firefox',
     'reload',
-    'help',
-    'about',
+    // 'help',
+    // 'about',
     'settings',
     'separator',
     'customize',
@@ -82,16 +82,16 @@ export const ToolbarButtonIcon: Component<{
                         return <BiSolidBookmarkPlus size={size} />;
                     case 'folder':
                         return <BiSolidFolderPlus size={size} />;
-                    case 'github':
-                        return <BiLogosGithub size={size} />;
-                    case 'firefox':
-                        return <BiLogosFirefox size={size} />;
+                    // case 'github':
+                    //     return <BiLogosGithub size={size} />;
+                    // case 'firefox':
+                    //     return <BiLogosFirefox size={size} />;
                     case 'reload':
                         return <BiRegularRefresh size={size} />;
-                    case 'help':
-                        return <BiSolidHelpCircle size={size} />;
-                    case 'about':
-                        return <BiSolidInfoCircle size={size} />;
+                    // case 'help':
+                    //     return <BiSolidHelpCircle size={size} />;
+                    // case 'about':
+                    //     return <BiSolidInfoCircle size={size} />;
                     case 'settings':
                         return <BiSolidCog size={size} />;
                     case 'separator':
@@ -337,22 +337,22 @@ function ToolbarButtonWrapper<U extends JSX.Element>(props: ToolbarButtonWrapper
     const navigate = useNavigate();
 
     switch (kind) {
-        case 'github':
-            onClick = e => openUrlClick('https://github.com/wilgaboury/super-speedy-dial', e);
-            break;
-        case 'firefox':
-            onClick = e =>
-                openUrlClick(
-                    'https://addons.mozilla.org/en-US/firefox/addon/super-speedy-dial/',
-                    e,
-                );
-            break;
+        // case 'github':
+        //     onClick = e => openUrlClick('https://github.com/xonika9/speed-dial-firefox', e);
+        //     break;
+        // case 'firefox':
+        //     onClick = e =>
+        //         openUrlClick(
+        //             'https://addons.mozilla.org/ru/firefox/addon/speed-dial-new-tab/',
+        //             e,
+        //         );
+        //     break;
         case 'settings':
             onClick = () => setShowSidebar(true);
             break;
-        case 'help':
-            onClick = () => navigate('/help');
-            break;
+        // case 'help':
+        //     onClick = () => navigate('/help');
+        //     break;
     }
 
     return (
