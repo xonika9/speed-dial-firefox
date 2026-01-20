@@ -3,18 +3,24 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --watch --minify false --outDir build_dev",
-    "build2": "vite build"
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "postinstall": "wxt prepare"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/webextension-polyfill": "^0.10.1",
+    "@wxt-dev/module-solid": "^1.1.4",
     "fast-glob": "^3.3.0",
     "marked": "^5.1.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.2",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "wxt": "^0.20.13"
   },
   "dependencies": {
     "@solid-primitives/deep": "^0.2.0",
